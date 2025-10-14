@@ -13,7 +13,7 @@ if not openai.api_key:
 def summarize_text(text):
     """Summarizes input text using OpenAI GPT model"""
     try:
-        response = openai.ChatCompletion.create(
+        response = openai.chat.completions.create(
             model="gpt-3.5-turbo",  # or "gpt-4" if available
             messages=[
                 {"role": "system", "content": "You are a helpful assistant that summarizes text."},
