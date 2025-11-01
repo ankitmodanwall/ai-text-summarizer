@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 AI Text Summarizer</h1>
+            <p>Powered by OpenAI GPT - Summarize any text instantly</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <label for="inputText">Enter your text:</label>
+                <textarea id="inputText" placeholder="Paste or type the text you want to summarize here..."
+                    rows="10"></textarea>
+
+                <div class="controls">
+                    <div class="detail-level">
+                        <label>Summary Length:</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="detail" value="short">
+                                <span>Short (1-2 sentences)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="detail" value="medium" checked>
+                                <span>Medium (3-4 sentences)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="detail" value="long">
+                                <span>Long (6-8 sentences)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button id="summarizeBtn" class="btn-primary">
+                        ✨ Summarize Text
+                    </button>
+                    <button id="clearBtn" class="btn-secondary">
+                        🗑️ Clear
+                    </button>
+                </div>
+            </div>
+
+            <div id="outputSection" class="output-section" style="display: none;">
+                <h2>📝 Summary</h2>
+                <div id="summaryText" class="summary-box"></div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Original:</span>
+                        <span id="originalLength" class="stat-value">0</span>
+                        <span class="stat-unit">characters</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Summary:</span>
+                        <span id="summaryLength" class="stat-value">0</span>
+                        <span class="stat-unit">characters</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Reduction:</span>
+                        <span id="reductionPercent" class="stat-value">0%</span>
+                    </div>
+                </div>
+
+                <button id="copyBtn" class="btn-secondary">
+                    📋 Copy Summary
+                </button>
+            </div>
+
+            <div id="errorSection" class="error-section" style="display: none;">
+                <p id="errorText"></p>
+            </div>
+
+            <div id="loadingSection" class="loading-section" style="display: none;">
+                <div class="spinner"></div>
+                <p>Generating summary...</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built with ❤️ by Akshay</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
